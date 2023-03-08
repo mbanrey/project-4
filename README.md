@@ -12,6 +12,8 @@
 
 ## ERD
 
+![ERD](wireframes/ERD.png)
+
 ## Technologies Used
 
 - HTML
