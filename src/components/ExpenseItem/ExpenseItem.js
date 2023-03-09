@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function ExpenseItem({expense}) {
+export default function ExpenseItem({expense, setExpenses}) {
     return(
         <div className="expense-item">
             <h3>{expense.name}</h3>
