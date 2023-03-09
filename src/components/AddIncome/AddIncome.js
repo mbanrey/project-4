@@ -1,12 +1,12 @@
 import { useState } from "react"
-import * as incomeAPI from '../../utilities/'
+import * as incomeAPI from '../../utilities/income-api'
 
 export default function AddIncome() {
 
     const intialData = {
-        catergory: 'New Income',
+        category: 'New Income',
         amount: 0,
-        date: Date.now
+        date: Date.now()
     }
 
     const [newIncome, setNewIncome]= useState(intialData)
@@ -18,13 +18,43 @@ export default function AddIncome() {
         })
     }
 
-    async function handleCreateIngredient(event) {
+    async function handleCreateIncome(event) {
         event.preventDefault()
 
         //Add to the DB
-        await ingredientsAPI.create(newIncome)
+        const incomes = await incomeAPI.create(newIncome)
+    
 
         //reset form data
-        setNewIncome(intialData)
+        setNewIncome(incomes)
     }
+
+    return(
+        <form >
+            <label>Category</label>
+            <select name='category'>
+                <options value='food'>food</options>
+                <options value='gas'>gas</options>
+                <options value='bills'>bills</options>
+            </select>
+            <label>Amount</label>
+            <input 
+                type='number'
+                name='amount'
+                placeholder='amount'
+                value={newIncome.amount}    
+            />
+            <label>Date</label>
+            <input 
+                type='date'
+                name='date'
+                placeholder='date'
+                value={newIncome.date}
+            />
+            <button 
+            onclick={handleCreateIncome}>
+                Add Income
+                </button>
+        </form>
+    )
 }
