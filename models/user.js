@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const Schema = mongoose.Schema
+const expenseSchema = require('./expense')
+const incomeSchema = require('./income')
 
 const SALT_ROUNDS = 6
 
@@ -9,7 +11,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    email: {
+    username: {
         type: String,
         required: true,
         unique: true,
@@ -19,14 +21,24 @@ const userSchema = new Schema({
     password: {
         type: String,
         trim: true,
-        minLength: 3,
+        minLength: 5,
         required: true
-    }
+    },
+    income: [{
+        type: incomeSchema
+    }],
+    expenses: [{
+        type: expenseSchema
+    }],
+    lastLogin: {
+        type: Date
+    },
 }, {
     timestamps: true,
     toJSON: {
         transform: function(doc, user) {
             delete user.password
+            user.lastLogin = Date.now()
             return user
         }
     }

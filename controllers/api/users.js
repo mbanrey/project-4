@@ -23,7 +23,7 @@ async function create(req, res, next) {
 
 async function logIn(req, res, next) {
     try {
-        const user = await User.findOne({email: req.body.email})
+        const user = await User.findOne({username: req.body.username}).populate('expenses').populate('income')
         if(bcrypt.compareSync(req.body.password, user.password)) {
             res.json(createJWT(user))
         } 
