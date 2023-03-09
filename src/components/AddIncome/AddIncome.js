@@ -3,13 +3,11 @@ import * as incomeAPI from '../../utilities/income-api'
 
 export default function AddIncome() {
 
-    const intialData = {
-        category: 'New Income',
-        amount: 0,
-        date: Date.now()
-    }
-
-    const [newIncome, setNewIncome]= useState(intialData)
+    const [newIncome, setNewIncome]= useState({
+        category: '',
+        amount: '',
+        date: ''
+    })
 
     function handleChange(event) {
         setNewIncome({
@@ -20,25 +18,36 @@ export default function AddIncome() {
 
     async function handleCreateIncome(event) {
         event.preventDefault()
-
         //Add to the DB
-        const incomes = await incomeAPI.create(newIncome)
+        const income = {
+            category: newIncome.category,
+            amount: newIncome.amount,
+            date: newIncome.date
+        }
+        const incomes = await incomeAPI.create(income)
     
 
-        //reset form data
-        setNewIncome(incomes)
+        // //reset form data
+        setNewIncome(
+            {
+                category: '',
+                amount: '',
+                date: ''
+            }
+        )
     }
 
     return(
         <form >
             <label>Category</label>
-            <select name='category'>
-                <options value='food'>food</options>
-                <options value='gas'>gas</options>
-                <options value='bills'>bills</options>
+            <select onChange={handleChange} value={newIncome.category} name='category'>
+                <option value='food'>food</option>
+                <option value='gas'>gas</option>
+                <option value='bills'>bills</option>
             </select>
             <label>Amount</label>
             <input 
+                onChange={handleChange}
                 type='number'
                 name='amount'
                 placeholder='amount'
@@ -46,13 +55,14 @@ export default function AddIncome() {
             />
             <label>Date</label>
             <input 
+                onChange={handleChange}
                 type='date'
                 name='date'
                 placeholder='date'
                 value={newIncome.date}
             />
             <button 
-            onclick={handleCreateIncome}>
+            onClick={handleCreateIncome}>
                 Add Income
                 </button>
         </form>
