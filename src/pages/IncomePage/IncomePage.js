@@ -1,9 +1,9 @@
 import IncomeList from '../../components/IncomeList/IncomeList'
 
-export default function IncomePage() {
+export default function IncomePage({userIncome}) {
     return(
         <div>
-            <IncomeList />
+            <IncomeList incomeArray={userIncome}/>
         </div>
     )
 }

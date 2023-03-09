@@ -1,9 +1,13 @@
-import NavBar from "../../components/NavBar"
+import { useState } from "react"
 
-function HomePage() {
+function HomePage({userExpenses}) {
+  const [expenses, setExpenses] = useState(userExpenses)
+
   return (
-    <div>HomePage
-      <NavBar />
+    <div>
+      {expenses && expenses.map((expense, index) => (
+        <div key={index}>{expense.amount}</div>
+      ))}
     </div>
   )
 }

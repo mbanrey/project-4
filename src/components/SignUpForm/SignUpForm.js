@@ -5,7 +5,7 @@ export default class SignUpForm extends Component{
     // state is just a POJO
     state = {
         name: '',
-        email: '',
+        username: '',
         password: '',
         confirm: '',
         error: ''
@@ -56,11 +56,11 @@ export default class SignUpForm extends Component{
                         onChange={this.handleChange}
                         required 
                     />
-                    <label>Email</label>
+                    <label>Username</label>
                     <input 
-                        type="email"
-                        name="email"
-                        value={this.state.email}
+                        type="text"
+                        name="username"
+                        value={this.state.username}
                         onChange={this.handleChange}
                         required 
                     />
