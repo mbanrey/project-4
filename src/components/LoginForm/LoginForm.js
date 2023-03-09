@@ -3,7 +3,7 @@ import { logIn } from "../../utilities/users-service"
 
 export default function LoginForm({setUser}) {
     const [credentials, setCredentials] = useState({
-        email: '',
+        username: '',
         password: '',
     })
 
@@ -29,11 +29,11 @@ export default function LoginForm({setUser}) {
     return (
         <div className="form-container">
                 <form autoComplete="off" onSubmit={handleSubmit}>
-                    <label>Email</label>
+                    <label>Username</label>
                     <input 
-                        type="email"
-                        name="email"
-                        value={credentials.email}
+                        type="text"
+                        name="username"
+                        value={credentials.username}
                         onChange={handleChange}
                         required 
                     />

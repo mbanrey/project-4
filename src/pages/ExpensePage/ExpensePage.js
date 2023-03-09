@@ -1,9 +1,8 @@
 import ExpenseList from '../../components/ExpenseList/ExpenseList'
 
-export default function ExpensePage() {
+export default function ExpensePage({userExpenses}) {
+
     return(
-        <div>
-            <ExpenseList />
-        </div>
+        <ExpenseList expenses={userExpenses}/>      
     )
 }

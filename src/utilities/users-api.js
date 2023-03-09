@@ -3,38 +3,10 @@ const BASE_URL = "/api/users"
 
 export async function signUp(userData) {
     return sendRequest(BASE_URL, 'POST', userData)
-    // const res = await fetch(BASE_URL, {
-    //     // I want to make a user
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(userData)
-    // })
-
-    // // we get a true here when the status is 200
-    // if(res.ok) {
-    //     return res.json()
-    // } else {
-    //     throw new Error('Invalid Sign Up')
-    // }
 }
 
 export async function logIn(credentials) {
     return sendRequest(`${BASE_URL}/log-in`, 'POST', credentials)
-    // const res = await fetch(`${BASE_URL}/log-in`, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(credentials)
-    // })
-
-    // if(res.ok) {
-    //     return res.json()
-    // } else {
-    //     throw new Error('Invalid email or password')
-    // }
 }
 
 export default async function sendRequest(url, method='GET', payload=null) {
@@ -50,7 +22,11 @@ export default async function sendRequest(url, method='GET', payload=null) {
     }
     const res = await fetch(url, options)
     if(res.ok) {
-        return res.json()
+        if(res.status === 204) {
+            return res
+        } else {
+            return res.json()
+        }
     } else {
         throw new Error("Bad Request")
     }

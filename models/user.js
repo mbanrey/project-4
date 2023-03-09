@@ -38,7 +38,6 @@ const userSchema = new Schema({
     toJSON: {
         transform: function(doc, user) {
             delete user.password
-            user.lastLogin = Date.now()
             return user
         }
     }

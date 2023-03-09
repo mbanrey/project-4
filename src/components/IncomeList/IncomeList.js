@@ -1,9 +1,11 @@
 import IncomeItem from '../IncomeItem/IncomeItem'
 
-export default function IncomeList() {
+export default function IncomeList({incomeArray}) {
     return(
         <div>
-            <IncomeItem />
+            {incomeArray && incomeArray.map((income, index) => (
+                <IncomeItem income={income} key={index}/>
+            ))}
         </div>
     )
 }

@@ -1,7 +1,11 @@
 import ExpenseItem from "../ExpenseItem/ExpenseItem"
 
-export default function ExpenseList() {
+export default function ExpenseList({expenses}) {
     return(
-        <ExpenseItem />
+        <div className="expense-list">
+            {expenses && expenses.map((expense, index) => (
+                <ExpenseItem expense={expense} key={index}/>
+            ))}
+        </div>
     )
 }
