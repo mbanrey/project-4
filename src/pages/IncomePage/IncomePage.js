@@ -5,7 +5,7 @@ export default function IncomePage({userIncome, setIncome}) {
     return(
         <div>
             <IncomeList setIncome={setIncome} incomeArray={userIncome}/>
-            <AddIncome income={userIncome} setIncome={setIncome} />
+            <AddIncome setIncome={setIncome} />
         </div>
     )
 }
