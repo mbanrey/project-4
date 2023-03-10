@@ -19,6 +19,7 @@ function App() {
     setExpenses(user.expenses)
     setIncome(user.income)
   }, [])
+  
 
   return (
     <main className="App">
