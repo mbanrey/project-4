@@ -1,7 +1,7 @@
 import { useState } from "react"
 import * as incomeAPI from '../../utilities/income-api'
 
-export default function AddIncome({income, setIncome}) {
+export default function AddIncome({setIncome}) {
 
     const [newIncome, setNewIncome]= useState({
         category: '',

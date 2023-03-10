@@ -1,13 +1,12 @@
 import { useState } from "react";
 import * as expenseAPI from '../../utilities/expenses-api'
 
-export default function EditIncome() {
+export default function EditIncome({expense, setExpenses}) {
     const [editExpense, setEditExpense]= useState({
         name: expense.name,
         category: expense.category,
         amount: expense.amount,
-        date: expense.date,
-        url: expense.url
+        date: expense.date
     }) 
 
     function handleChange(event) {
@@ -21,7 +20,8 @@ export default function EditIncome() {
         event.preventDefault()
 
         //Remove from DB
-        await expenseAPI.remove(expense._id)
+        const expenses = await expenseAPI.remove(expense._id)
+        setExpenses(expenses)
     }
 
     async function handleUpdate(event) {
@@ -31,10 +31,9 @@ export default function EditIncome() {
             name: editExpense.name,
             category: editExpense.category,
             amount: editExpense.amount,
-            date: editExpense.date,
-            url: editExpense.url
+            date: editExpense.date
         }
-        const incomes = await expenseAPI.update(expense._id,editedExpense)
+        const expenses = await expenseAPI.update(expense._id,editedExpense)
     
 
         // //reset form data
@@ -43,10 +42,10 @@ export default function EditIncome() {
             name: expense.name,
             category: expense.category,
             amount: expense.amount,
-            date: expense.date,
-            url: expense.url
+            date: expense.date
             }
         )
+        setExpenses(expenses)
     }
     return(
         <form>
@@ -80,14 +79,6 @@ export default function EditIncome() {
                 placeholder='date'
                 value={editExpense.date}
             />
-            <label>Website</label>
-            <input 
-                onChange={handleChange} 
-                type='text'
-                name='url'
-                placeholder="website"
-                value={editExpense.url} 
-             />
             <button 
             onClick={handleUpdate}>
                 Update Expense

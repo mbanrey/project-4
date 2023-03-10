@@ -1,8 +1,12 @@
 import ExpenseList from '../../components/ExpenseList/ExpenseList'
+import AddExpense from '../../components/AddExpense/AddExpense'
 
 export default function ExpensePage({userExpenses, setExpenses}) {
 
     return(
-        <ExpenseList setExpenses={setExpenses} expenses={userExpenses}/>      
+        <div>
+            <ExpenseList setExpenses={setExpenses} expenses={userExpenses}/> 
+            <AddExpense setExpenses={setExpenses}/>
+        </div>
     )
 }
