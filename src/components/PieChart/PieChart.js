@@ -80,32 +80,10 @@ export default function PieChart({expenses}) {
     setSelectedMonth(e.target.value)
   }
 
-  return (
-      <div className='pie'>
-          <h1>Expenses by Month</h1>
-          <label>Year</label>
-          <select onChange={handleYearChange} value={selectedYear}>
-              <option value='2020'>2020</option>
-              <option value='2021'>2021</option>
-              <option value='2022'>2022</option>
-              <option value='2023'>2023</option>
-          </select>
-
-          <label>Month</label>
-          <select onChange={handleMonthChange} value={selectedMonth}>
-              <option value='0'>January</option>
-              <option value='1'>February</option>
-              <option value='2'>March</option>
-              <option value='3'>April</option>
-              <option value='4'>May</option>
-              <option value='5'>June</option>
-              <option value='6'>July</option>
-              <option value='7'>August</option>
-              <option value='8'>September</option>
-              <option value='9'>October</option>
-              <option value='10'>November</option>
-              <option value='11'>December</option>
-          </select>
+export default function PieChart() {
+    return (
+        <div className='pie'>
+            <h1>Hello This is Pie</h1>
 
           <Pie key={key} data={data}/>
       </div>
