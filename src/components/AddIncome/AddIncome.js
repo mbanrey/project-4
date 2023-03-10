@@ -31,7 +31,7 @@ export default function AddIncome({setIncome}) {
         // //reset form data
         setNewIncome(
             {
-                category: '',
+                category: 'job',
                 amount: '',
                 date: ''
             }

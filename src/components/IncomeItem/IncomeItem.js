@@ -16,7 +16,7 @@ export default function IncomeItem({income, setIncome}) {
             <p>{income.amount}</p>
             <p>{incomeDate.toLocaleDateString()}</p>
             <button onClick={handleClick}>Edit</button>
-            {visible && <EditIncome setIncome={setIncome} income={income}/>}
+            {visible && <EditIncome setIncome={setIncome} income={income} setVisible={setVisible}/>}
         </div>
     )
 }
