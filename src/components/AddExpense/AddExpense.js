@@ -5,7 +5,7 @@ export default function AddExpense({setExpenses}) {
 
     const [newExpense, setNewExpense]= useState({
         name: '',
-        category:'',
+        category:'food',
         amount: '',
         date: ''
     })

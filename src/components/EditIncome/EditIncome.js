@@ -48,7 +48,7 @@ export default function EditIncome({income, setIncome}) {
     return(
         <form>
             <label>Category</label>
-            <select onChange={handleChange} value={editIncome.category} name='category'>
+            <select selected={editIncome.category} onChange={handleChange} value={editIncome.category} name='category'>
                 <option value='job'>Job</option>
                 <option value='investments'>Investments</option>
                 <option value='misc'>Misc</option>
