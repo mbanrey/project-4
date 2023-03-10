@@ -58,10 +58,13 @@ export default function EditIncome({expense, setExpenses}) {
                 value={editExpense.name}    
             />
             <label>Category</label>
-            <select onChange={handleChange} value={editExpense.category} name='category'>
-                <option value='food'>food</option>
-                <option value='gas'>gas</option>
-                <option value='bills'>bills</option>
+            <select selected={editExpense.category} onChange={handleChange} value={editExpense.category} name='category'>
+            <option value='food'>Food</option>
+                <option value='gas'>Gas</option>
+                <option value='bills'>Bills</option>
+                <option value='vehicle'>Vehicle</option>
+                <option value='entertainment'>Entertainment</option>
+                <option value='travel'>Travel</option>
             </select>
             <label>Amount</label>
             <input 

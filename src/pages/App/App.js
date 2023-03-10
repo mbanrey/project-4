@@ -13,6 +13,17 @@ function App() {
   const [expenses, setExpenses] = useState([])
   const [income, setIncome] = useState([])
 
+  useEffect(() => {
+    const user = getUser()
+    if(user) {
+      setExpenses(user.expenses)
+      setIncome(user.income)
+    } else {
+      setExpenses([])
+      setIncome([])
+    }
+  }, [user])
+
 
   return (
     <main className="App">
