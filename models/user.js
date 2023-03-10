@@ -46,10 +46,10 @@ const userSchema = new Schema({
 userSchema.pre('save', async function(next) {
     if(!this.isModified('password')) {
         const sortedExpenses = this.expenses.sort((a,b) => {
-            return new Date(a.date).getTime() - new Date(b.date).getTime()
+            return new Date(b.date).getTime() - new Date(a.date).getTime()
           })
         const sortedIncome = this.income.sort((a,b) => {
-        return new Date(a.date).getTime() - new Date(b.date).getTime()
+        return new Date(b.date).getTime() - new Date(a.date).getTime()
         })
         this.income = sortedIncome
         this.expenses = sortedExpenses

@@ -27,12 +27,21 @@ export default function PieChart({expenses}) {
         'travel': 5
     }
 
+    const currentDate = new Date()
+    const year = currentDate.getFullYear()
+    const month = currentDate.getMonth()
+    const currentMonthsExpenses = expenses.filter(expense => {
+      const date = new Date(expense.date)
+      if(date.getFullYear() === year && date.getMonth() === month) {
+        return expense
+      }
+    })
 
     const data = {
         labels: ['Gas', 'Bills', 'Food', 'Vehicle', 'Entertainment', 'Travel'],
         datasets: [
           {
-            label: '# of Votes',
+            label: '',
             data: [0, 0, 0, 0, 0, 0],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
@@ -55,13 +64,13 @@ export default function PieChart({expenses}) {
         ],
       };
 
-      for(let expense of expenses){
+      for(let expense of currentMonthsExpenses){
         data.datasets[0].data[labelMap[expense.category]] += expense.amount
       }
 
     return (
         <div className='pie'>
-            <h1>Hello This is Pie</h1>
+            <h1>This months expenses</h1>
 
             <Pie data={data}/>
         </div>
