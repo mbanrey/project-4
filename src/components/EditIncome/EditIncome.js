@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as incomeAPI from '../../utilities/income-api'
 
-export default function EditIncome() {
+export default function EditIncome({income, setIncome}) {
     const [editIncome, setEditIncome]= useState({
         category: income.category,
         amount: income.amount,
@@ -19,7 +19,8 @@ export default function EditIncome() {
         event.preventDefault()
 
         //Remove from DB
-        await incomeAPI.remove(income._id)
+        const incomes = await incomeAPI.remove(income._id)
+        setIncome(incomes)
     }
 
     async function handleUpdate(event) {
@@ -41,14 +42,16 @@ export default function EditIncome() {
             date: income.date
             }
         )
+        
+        setIncome(incomes)
     }
     return(
         <form>
             <label>Category</label>
             <select onChange={handleChange} value={editIncome.category} name='category'>
-                <option value='food'>food</option>
-                <option value='gas'>gas</option>
-                <option value='bills'>bills</option>
+                <option value='job'>Job</option>
+                <option value='investments'>Investments</option>
+                <option value='misc'>Misc</option>
             </select>
             <label>Amount</label>
             <input 
@@ -63,7 +66,7 @@ export default function EditIncome() {
                 onChange={handleChange}
                 type='date'
                 name='date'
-                placeholder='date'
+                placeholder={editIncome.date}
                 value={editIncome.date}
             />
             <button 

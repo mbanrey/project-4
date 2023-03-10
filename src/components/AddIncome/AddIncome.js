@@ -1,7 +1,7 @@
 import { useState } from "react"
 import * as incomeAPI from '../../utilities/income-api'
 
-export default function AddIncome() {
+export default function AddIncome({income, setIncome}) {
 
     const [newIncome, setNewIncome]= useState({
         category: '',
@@ -35,15 +35,16 @@ export default function AddIncome() {
                 date: ''
             }
         )
+        setIncome(incomes)
     }
 
     return(
         <form >
             <label>Category</label>
             <select onChange={handleChange} value={newIncome.category} name='category'>
-                <option value='food'>food</option>
-                <option value='gas'>gas</option>
-                <option value='bills'>bills</option>
+                <option value='job'>Job</option>
+                <option value='investments'>Investments</option>
+                <option value='misc'>Misc</option>
             </select>
             <label>Amount</label>
             <input 
