@@ -1,14 +1,13 @@
 import { useState } from "react"
 import * as expenseAPI from '../../utilities/expenses-api'
 
-export default function AddExpense() {
+export default function AddExpense({setExpenses}) {
 
     const [newExpense, setNewExpense]= useState({
         name: '',
         category:'',
         amount: '',
-        date: '',
-        url:''
+        date: ''
     })
 
     function handleChange(event) {
@@ -26,7 +25,6 @@ export default function AddExpense() {
             category: newExpense.category,
             amount: newExpense.amount,
             date: newExpense.date,
-            url: newExpense.url
         }
         const expenses = await expenseAPI.create(expense)
     
@@ -38,9 +36,9 @@ export default function AddExpense() {
                 category: '',
                 amount: '',
                 date: '',
-                url:''
             }
         )
+        setExpenses(expenses)
     }
 
     return(
@@ -79,13 +77,6 @@ export default function AddExpense() {
                 value={newExpense.date}
             />
             <label>Website</label>
-            <input 
-                onChange={handleChange} 
-                type='text'
-                name='url'
-                placeholder="website"
-                value={newExpense.url} 
-             />
             <button 
             onClick={handleCreateExpense}>
                 Add Expense
