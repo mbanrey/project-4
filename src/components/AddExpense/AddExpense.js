@@ -24,7 +24,7 @@ export default function AddExpense({setExpenses}) {
             name: newExpense.name,
             category: newExpense.category,
             amount: newExpense.amount,
-            date: newExpense.date,
+            date: new Date((new Date(newExpense.date).getTime() + 86400000)),
         }
         const expenses = await expenseAPI.create(expense)
     
