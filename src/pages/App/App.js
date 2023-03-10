@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Routes, Route, Navigate } from "react-router-dom"
 import './App.css';
 import AuthPage from "../AuthPage/AuthPage";
@@ -9,16 +9,9 @@ import IncomePage from "../IncomePage/IncomePage";
 import ExpensePage from "../ExpensePage/ExpensePage";
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(getUser())
   const [expenses, setExpenses] = useState([])
   const [income, setIncome] = useState([])
-
-  useEffect(() => {
-    const user = getUser()
-    setUser(user)
-    setExpenses(user.expenses)
-    setIncome(user.income)
-  }, [])
 
   return (
     <main className="App">
@@ -33,7 +26,7 @@ function App() {
           </Routes>
         </> 
          ):(
-        <AuthPage setUser={setUser}/>
+        <AuthPage setExpenses={setExpenses} setIncome={setIncome} setUser={setUser}/>
       )} 
     </main>
   );
