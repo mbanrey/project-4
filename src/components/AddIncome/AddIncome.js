@@ -4,7 +4,7 @@ import * as incomeAPI from '../../utilities/income-api'
 export default function AddIncome({setIncome}) {
 
     const [newIncome, setNewIncome]= useState({
-        category: '',
+        category: 'job',
         amount: '',
         date: ''
     })
@@ -22,8 +22,9 @@ export default function AddIncome({setIncome}) {
         const income = {
             category: newIncome.category,
             amount: newIncome.amount,
-            date: newIncome.date
+            date: new Date((new Date(newIncome.date).getTime() + 86400000))
         }
+        console.log(income)
         const incomes = await incomeAPI.create(income)
     
 
