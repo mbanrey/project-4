@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { logIn } from "../../utilities/users-service"
 
-export default function LoginForm({setUser}) {
+export default function LoginForm({setUser, setIncome, setExpenses}) {
     const [credentials, setCredentials] = useState({
         username: '',
         password: '',
@@ -21,6 +21,8 @@ export default function LoginForm({setUser}) {
             e.preventDefault()
             const user = await logIn(credentials)
             setUser(user)
+            setIncome(user.income)
+            setExpenses(user.expenses)
         } catch {
             setError('Error Logging In')
         }

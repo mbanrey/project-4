@@ -9,16 +9,10 @@ import IncomePage from "../IncomePage/IncomePage";
 import ExpensePage from "../ExpensePage/ExpensePage";
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(getUser())
   const [expenses, setExpenses] = useState([])
   const [income, setIncome] = useState([])
 
-  useEffect(() => {
-    const user = getUser()
-    setUser(user)
-    setExpenses(user.expenses)
-    setIncome(user.income)
-  }, [])
 
   return (
     <main className="App">
@@ -26,14 +20,23 @@ function App() {
         <>
           <NavBar setUser={setUser} user={user}/>
           <Routes>
-            <Route path="/home" element={<HomePage setExpenses={setExpenses} userExpenses={expenses}/>} />
-            <Route path="/income" element={<IncomePage setIncome={setIncome} userIncome={income}/>} />
-            <Route path="/expenses" element={<ExpensePage setExpenses={setExpenses} userExpenses={expenses}/>} />
+            <Route path="/home" element={<HomePage 
+                                setExpenses={setExpenses} 
+                                userExpenses={expenses}/>} 
+                                />
+            <Route path="/income" element={<IncomePage 
+                                  setIncome={setIncome} 
+                                  userIncome={income}/>} 
+                                  />
+            <Route path="/expenses" element={<ExpensePage 
+                                    setExpenses={setExpenses} 
+                                    userExpenses={expenses}/>} 
+                                    />
             <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
         </> 
          ):(
-        <AuthPage setUser={setUser}/>
+        <AuthPage setExpenses={setExpenses} setIncome={setIncome} setUser={setUser}/>
       )} 
     </main>
   );
