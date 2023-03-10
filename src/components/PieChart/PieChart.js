@@ -15,7 +15,10 @@ ChartJS.register(
 
 // const  = ingredients.filter(ingredient => ingredient.isAvailable)
 
-export const data = {
+
+
+export default function PieChart() {
+    const data = {
     labels: ['Gas', 'Bills', 'Food', 'Vehicle', 'Entertainment', 'Travel'],
     datasets: [
       {
@@ -41,8 +44,6 @@ export const data = {
       },
     ],
   };
-
-export default function PieChart() {
     return (
         <div className='pie'>
             <h1>Hello This is Pie</h1>
