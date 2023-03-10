@@ -33,7 +33,7 @@ export default function AddExpense({setExpenses}) {
         setNewExpense(
             {
                 name:'',
-                category: '',
+                category: 'food',
                 amount: '',
                 date: '',
             }

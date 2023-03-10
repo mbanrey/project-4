@@ -17,7 +17,7 @@ export default function ExpenseItem({expense, setExpenses}) {
             <p>{expense.category}</p>
             <p>{expenseDate.toLocaleDateString()}</p>
             <button onClick={handleClick}>Edit</button>
-            {visible && <EditExpense expense={expense} setExpenses={setExpenses}/>}
+            {visible && <EditExpense expense={expense} setExpenses={setExpenses} setVisible={setVisible}/>}
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as expenseAPI from '../../utilities/expenses-api'
 
-export default function EditIncome({expense, setExpenses}) {
+export default function EditIncome({expense, setExpenses, setVisible}) {
     const [editExpense, setEditExpense]= useState({
         name: expense.name,
         category: expense.category,
@@ -19,6 +19,8 @@ export default function EditIncome({expense, setExpenses}) {
     async function handleDelete(event) {
         event.preventDefault()
 
+        setVisible(false)
+
         //Remove from DB
         const expenses = await expenseAPI.remove(expense._id)
         setExpenses(expenses)
@@ -26,6 +28,9 @@ export default function EditIncome({expense, setExpenses}) {
 
     async function handleUpdate(event) {
         event.preventDefault()
+
+        setVisible(false)
+
         //Add to the DB
         const editedExpense = {
             name: editExpense.name,
