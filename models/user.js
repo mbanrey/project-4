@@ -44,7 +44,17 @@ const userSchema = new Schema({
 })
 
 userSchema.pre('save', async function(next) {
-    if(!this.isModified('password')) return next()
+    if(!this.isModified('password')) {
+        const sortedExpenses = this.expenses.sort((a,b) => {
+            return new Date(a.date).getTime() - new Date(b.date).getTime()
+          })
+        const sortedIncome = this.income.sort((a,b) => {
+        return new Date(a.date).getTime() - new Date(b.date).getTime()
+        })
+        this.income = sortedIncome
+        this.expenses = sortedExpenses
+        return next()
+    }
     this.password = await bcrypt.hash(this.password, SALT_ROUNDS)
     return next()
 })
