@@ -45,7 +45,7 @@ export default function PieChart({expenses}) {
       },
     ],
   })
-
+}
   const labelMap = {
       'gas': 0,
       'bills': 1,
