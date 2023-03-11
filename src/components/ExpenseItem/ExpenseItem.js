@@ -15,7 +15,7 @@ export default function ExpenseItem({expense, setExpenses}) {
         <div className="expense-item" >
             <div className="date-and-button" >
             <p>{expenseDate.toLocaleDateString()}</p>
-            <button onClick={handleClick}>Edit</button>
+            <button onClick={handleClick} className='edit-toggle'>Edit</button>
             </div>
             <div className="expense-item-description">
             <p className="flex-item">{expense.name}</p>
