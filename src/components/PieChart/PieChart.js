@@ -72,22 +72,6 @@ export default function PieChart({expenses}) {
     setKey(prev => prev + 1)
   }, [selectedMonth, selectedYear])
 
-  useEffect(() => {
-    const selectedMonthsExpenses = expenses.filter(expense => {
-      const date = new Date(expense.date)
-      if(date.getFullYear() == selectedYear && date.getMonth() == selectedMonth) {
-        return expense
-      }
-    })
-    const newData = [0, 0, 0, 0, 0, 0]
-    const newObj = data
-    for(let expense of selectedMonthsExpenses){
-      newData[labelMap[expense.category]] += expense.amount
-    }
-    newObj.datasets[0].data = newData 
-    setData(newObj)
-  }, [])
-
   function handleYearChange(e) {
     setSelectedYear(e.target.value)
   }
