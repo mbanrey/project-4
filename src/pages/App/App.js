@@ -33,7 +33,8 @@ function App() {
           <Routes>
             <Route path="/home" element={<HomePage 
                                 setExpenses={setExpenses} 
-                                userExpenses={expenses}/>} 
+                                userExpenses={expenses}
+                                income={income}/>} 
                                 />
             <Route path="/income" element={<IncomePage 
                                   setIncome={setIncome} 
