@@ -1,0 +1,14 @@
+.Nav{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 10vw;
+    margin: 5vh 3vw;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding:3vh 3vw;
+}
+.Nav a{
+    margin: 3vh auto;
+    text-align: center;
+}
