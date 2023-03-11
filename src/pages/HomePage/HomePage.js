@@ -14,10 +14,10 @@ function HomePage({userExpenses, setExpenses}) {
       <div>
       {sumVar && sumVar.map((expense, index) => (
         <div key={index}>
-          <h3>{expense.name}</h3>
-            <p>{expense.amount}</p>
-            <p>{expense.category}</p>
             <p>{new Date(expense.date).toLocaleDateString()}</p>
+            <p>{expense.name}</p>
+            <p>{expense.category}</p>
+            <p>{expense.amount}</p>
         </div>
       ))}
       </div>
