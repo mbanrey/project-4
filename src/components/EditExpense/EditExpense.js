@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as expenseAPI from '../../utilities/expenses-api'
+import './EditExpense.css'
 
 export default function EditIncome({expense, setExpenses, setVisible}) {
     const [editExpense, setEditExpense]= useState({
@@ -53,8 +54,17 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
         setExpenses(expenses)
     }
     return(
-        <form>
-            <label>Name</label>
+        <form className="Form">
+            {/* <label>Name</label> */}
+            <input 
+                className="edit-date"
+                onChange={handleChange}
+                type='date'
+                name='date'
+                placeholder='date'
+                value={editExpense.date}
+            />
+            <div className="edit-form-description">
             <input 
                 onChange={handleChange}
                 type='text'
@@ -62,7 +72,7 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
                 placeholder='name'
                 value={editExpense.name}    
             />
-            <label>Category</label>
+            {/* <label>Category</label> */}
             <select selected={editExpense.category} onChange={handleChange} value={editExpense.category} name='category'>
             <option value='food'>Food</option>
                 <option value='gas'>Gas</option>
@@ -71,7 +81,7 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
                 <option value='entertainment'>Entertainment</option>
                 <option value='travel'>Travel</option>
             </select>
-            <label>Amount</label>
+            {/* <label>Amount</label> */}
             <input 
                 onChange={handleChange}
                 type='number'
@@ -79,14 +89,9 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
                 placeholder='amount'
                 value={editExpense.amount}    
             />
-            <label>Date</label>
-            <input 
-                onChange={handleChange}
-                type='date'
-                name='date'
-                placeholder='date'
-                value={editExpense.date}
-            />
+            {/* <label>Date</label> */}
+            </div>
+            <div className="edit-buttons">
             <button 
             onClick={handleUpdate}>
                 Update Expense
@@ -95,6 +100,7 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
             onClick={handleDelete}>
                 Delete Expense
                 </button>
+            </div>
         </form>
     )
 }
