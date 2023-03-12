@@ -23,7 +23,7 @@ export default function ExpenseItem({expense, setExpenses}) {
             <p className="flex-item">${expense.amount}</p>
             </div>
             
-            {visible && <EditExpense expense={expense} setExpenses={setExpenses}/>}
+            {visible && <EditExpense expense={expense} setExpenses={setExpenses} setVisible={setVisible}/>}
         </div>
     )
 }

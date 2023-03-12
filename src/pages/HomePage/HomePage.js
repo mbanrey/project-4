@@ -8,7 +8,7 @@ function HomePage({userExpenses, setExpenses, income}) {
 
   return (
     
-    <div>
+    <div className="home-page">
       <div className="chia">
         <PieChart expenses={userExpenses} className={'pie'}/>
         <LineGraph income={income} expenses={userExpenses}/>

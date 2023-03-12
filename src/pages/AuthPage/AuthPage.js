@@ -1,12 +1,33 @@
+import { useState } from 'react'
 import SignUpForm from "../../components/SignUpForm/SignUpForm"
-import LoginForm from "../../components/LoginForm/LoginForm"
+import LoginForm from "../../components/LoginForm/LoginForm.js"
+import "./AuthPage.css"
 
-export default function AuthPage({setUser, setIncome, setExpenses}) {
+export default function AuthPage({ setUser }) {
+    
+    const [showSignUp, setShowSignUp] = useState(false)
+    
+    function handleSwitchForms(event) {
+        event.preventDefault()
+        setShowSignUp(!showSignUp)
+    }
+
     return (
-        <>
-            <h2>AuthPage</h2>
-            <SignUpForm setUser={setUser}/>
-            <LoginForm setExpenses={setExpenses} setIncome={setIncome} setUser={setUser}/>
-        </>
+        <div className='auth-page-design'>
+            {showSignUp ? (
+                <SignUpForm setUser={setUser} />
+            ) : (
+                <LoginForm setUser={setUser} />
+            )}
+            {showSignUp ? 
+                <>
+                    <p>Already have an account? Login <a className="authpage-link" onClick={handleSwitchForms} href="">here</a></p>
+                </>
+                : 
+                <>
+                    <p>First time ordering? Sign up <a className="authpage-link" onClick={handleSwitchForms} href="">here</a></p>
+                </>
+            }
+        </div>
     )
 }

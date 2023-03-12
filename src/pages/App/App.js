@@ -28,7 +28,7 @@ function App() {
   return (
     <main className="App">
       { user ? (
-        <>
+        <div className="app-page">
           <NavBar setUser={setUser} user={user}/>
           <Routes>
             <Route path="/home" element={<HomePage 
@@ -46,7 +46,7 @@ function App() {
                                     />
             <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
-        </> 
+        </div> 
          ):(
         <AuthPage setExpenses={setExpenses} setIncome={setIncome} setUser={setUser}/>
       )} 
