@@ -17,7 +17,7 @@ ChartJS.register(
 
 export default function LineGraph({ expenses, income }) {
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
-    const [key, setKey] = useState(100)
+    const [key, setKey] = useState(1000)
     const [data, setData] = useState({
         labels: [
             'January',
@@ -51,32 +51,24 @@ export default function LineGraph({ expenses, income }) {
     })
 
     useEffect(() => {
-        const selectedYearsExpenses = expenses.filter(expense => {
+        let newData = [0,0,0,0,0,0,0,0,0,0,0,0]
+        const dataCopy = data
+        for(let inc of income){
+          const date = new Date(inc.date)
+          if(date.getFullYear() == selectedYear) {
+            newData[date.getMonth()] += inc.amount
+          }
+        }
+        dataCopy.datasets[0].data = newData 
+        newData = [0,0,0,0,0,0,0,0,0,0,0,0]
+        for(let expense of expenses){
           const date = new Date(expense.date)
           if(date.getFullYear() == selectedYear) {
-            return expense
+            newData[date.getMonth()] += expense.amount
           }
-        })
-        const selectedYearsIncome = income.filter(income => {
-          const date = new Date(income.date)
-          if(date.getFullYear() == selectedYear) {
-            return income
-          }
-        })
-        let newData = [0,0,0,0,0,0,0,0,0,0,0,0]
-        const newObj = data
-        for(let income of selectedYearsIncome){
-            const date = new Date(income.date)
-          newData[date.getMonth()] += income.amount
         }
-        newObj.datasets[0].data = newData 
-        newData = [0,0,0,0,0,0,0,0,0,0,0,0]
-        for(let expense of selectedYearsExpenses){
-            const date = new Date(expense.date)
-          newData[date.getMonth()] += expense.amount
-        }
-        newObj.datasets[1].data = newData 
-        setData(newObj)
+        dataCopy.datasets[1].data = newData 
+        setData(dataCopy)
         setKey(prev => prev + 1)
       }, [selectedYear, expenses, income])
     
