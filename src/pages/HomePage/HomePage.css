@@ -1,3 +1,8 @@
 .pie{
    
 }
+
+.home-page{
+    flex-direction: row;
+    display: flex;
+}

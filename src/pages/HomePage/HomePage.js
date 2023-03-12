@@ -8,7 +8,7 @@ function HomePage({userExpenses, setExpenses, income}) {
 
   return (
     
-    <div>
+    <div className="home-page">
       <div className="chia">
         <PieChart expenses={userExpenses} className={'pie'}/>
         <LineGraph income={income} expenses={userExpenses}/>
@@ -16,10 +16,10 @@ function HomePage({userExpenses, setExpenses, income}) {
       <div>
       {sumVar && sumVar.map((expense, index) => (
         <div key={index}>
-          <h3>{expense.name}</h3>
-            <p>{expense.amount}</p>
-            <p>{expense.category}</p>
             <p>{new Date(expense.date).toLocaleDateString()}</p>
+            <p>{expense.name}</p>
+            <p>{expense.category}</p>
+            <p>{expense.amount}</p>
         </div>
       ))}
       </div>

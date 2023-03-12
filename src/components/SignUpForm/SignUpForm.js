@@ -1,5 +1,6 @@
 import { Component } from "react"
 import { signUp } from "../../utilities/users-service"
+import "./SignUpForm.css"
 
 export default class SignUpForm extends Component{
     // state is just a POJO
@@ -46,8 +47,8 @@ export default class SignUpForm extends Component{
         const disabled = this.state.password !== this.state.confirm
 
         return (
-            <div className="form-container">
-                <form autoComplete="off" onSubmit={this.handleSubmit}>
+            <div className="auth-container">
+                <form autoComplete="off" onSubmit={this.handleSubmit} className="form-container">
                     <label>Name</label>
                     <input 
                         type="text"
@@ -84,6 +85,7 @@ export default class SignUpForm extends Component{
                 </form>
                 <p className="error-message">{this.state.error}</p>
             </div>
+            
         )
     }
 }
