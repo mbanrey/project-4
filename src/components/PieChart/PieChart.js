@@ -70,7 +70,7 @@ export default function PieChart({expenses}) {
     newObj.datasets[0].data = newData 
     setData(newObj)
     setKey(prev => prev + 1)
-  }, [selectedMonth, selectedYear])
+  }, [selectedMonth, selectedYear, expenses])
 
   function handleYearChange(e) {
     setSelectedYear(e.target.value)

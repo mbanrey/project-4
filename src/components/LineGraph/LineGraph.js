@@ -78,7 +78,7 @@ export default function LineGraph({ expenses, income }) {
         newObj.datasets[1].data = newData 
         setData(newObj)
         setKey(prev => prev + 1)
-      }, [selectedYear])
+      }, [selectedYear, expenses, income])
     
     function handleYearChange(e) {
         setSelectedYear(e.target.value)
