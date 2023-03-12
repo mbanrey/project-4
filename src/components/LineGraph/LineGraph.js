@@ -51,26 +51,24 @@ export default function LineGraph({ expenses, income }) {
     })
 
     useEffect(() => {
-        let newData = [0,0,0,0,0,0,0,0,0,0,0,0]
-        const dataCopy = data
-        for(let inc of income){
-          const date = new Date(inc.date)
-          if(date.getFullYear() == selectedYear) {
-            newData[date.getMonth()] += inc.amount
-          }
+      const dataCopy = JSON.parse(JSON.stringify(data))
+      dataCopy.datasets[0].data =  [0,0,0,0,0,0,0,0,0,0,0,0]
+      for(let inc of income){
+        const date = new Date(inc.date)
+        if(date.getFullYear() == selectedYear) {
+          dataCopy.datasets[0].data[date.getMonth()] += inc.amount
         }
-        dataCopy.datasets[0].data = newData 
-        newData = [0,0,0,0,0,0,0,0,0,0,0,0]
-        for(let expense of expenses){
-          const date = new Date(expense.date)
-          if(date.getFullYear() == selectedYear) {
-            newData[date.getMonth()] += expense.amount
-          }
+      }
+      dataCopy.datasets[1].data = [0,0,0,0,0,0,0,0,0,0,0,0]
+      for(let expense of expenses){
+        const date = new Date(expense.date)
+        if(date.getFullYear() == selectedYear) {
+          dataCopy.datasets[1].data[date.getMonth()] += expense.amount
         }
-        dataCopy.datasets[1].data = newData 
-        setData(dataCopy)
-        setKey(prev => prev + 1)
-      }, [selectedYear, expenses, income])
+      }
+      setData(dataCopy)
+      setKey(prev => prev + 1)
+    }, [selectedYear, expenses, income])
     
     function handleYearChange(e) {
         setSelectedYear(e.target.value)

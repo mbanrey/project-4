@@ -56,15 +56,14 @@ export default function PieChart({expenses}) {
   }
 
   useEffect(() => {
-    const newData = [0, 0, 0, 0, 0, 0]
-    const dataCopy = data
+    const dataCopy = JSON.parse(JSON.stringify(data))
+    dataCopy.datasets[0].data = [0, 0, 0, 0, 0, 0]
     for(let expense of expenses){
       const date = new Date(expense.date)
       if(date.getFullYear() == selectedYear && date.getMonth() == selectedMonth) {
-        newData[labelMap[expense.category]] += expense.amount
+        dataCopy.datasets[0].data[labelMap[expense.category]] += expense.amount
       }
     }
-    dataCopy.datasets[0].data = newData 
     setData(dataCopy)
     setKey(prev => prev + 1)
   }, [selectedMonth, selectedYear, expenses])
