@@ -14,8 +14,8 @@ export default function ExpenseList({expenses, setExpenses}) {
         if(selectedPage === 1) {
             return
         }
-        setSelectedPage(prev => prev - 1)
         const startingIndex = numPerPage * (selectedPage - 2)
+        setSelectedPage(prev => prev - 1)
         setDisplayed(expenses.slice(startingIndex, startingIndex + numPerPage))
     }
 
@@ -23,12 +23,16 @@ export default function ExpenseList({expenses, setExpenses}) {
         if(selectedPage === numOfPages) {
             return
         }
-        setSelectedPage(prev => prev + 1)
         const startingIndex = numPerPage * (selectedPage)
+        setSelectedPage(prev => prev + 1)
         setDisplayed(expenses.slice(startingIndex, startingIndex + numPerPage))
     }
 
-
+    function getSpecificPage(page) {
+        setSelectedPage(page)
+        const startingIndex = numPerPage * (page - 1)
+        setDisplayed(expenses.slice(startingIndex, startingIndex + numPerPage))
+    }
 
     return(
         <div className="expense-list">
@@ -40,7 +44,13 @@ export default function ExpenseList({expenses, setExpenses}) {
             {displayed && displayed.map((expense, index) => (
                 <ExpenseItem setExpenses={setExpenses} expense={expense} key={index}/>
             ))}
-            <Paginate selectedPage={selectedPage} getPreviousPage={getPreviousPage} getNextPage={getNextPage}/>
+            <Paginate 
+                selectedPage={selectedPage} 
+                getPreviousPage={getPreviousPage} 
+                getNextPage={getNextPage}
+                getSpecificPage={getSpecificPage}
+                numOfPages={numOfPages}
+            />
         </div>
     )
 }

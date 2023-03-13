@@ -1,0 +1,13 @@
+.selected-page {
+    color: black;
+}
+
+.paginate-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.paginate-container span {
+    cursor: pointer;
+}
