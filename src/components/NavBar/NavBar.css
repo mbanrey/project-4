@@ -7,17 +7,25 @@
     /* border: 2px solid black; */
     border-radius: 10px;
     /* padding:3vh 3vw; */
-    border: 2px solid rgb(152, 193, 217);
-    background-color: rgb(61, 90, 128)
+    border: 2px solid rgb(41, 50, 65);
+    background-color: rgba(0,184,255, .6);
     
 }
 .Nav a{
     margin:  auto;
     text-align: center;
     text-decoration: none;
-    color: rgb(152, 193, 217);
+    color: rgb(41, 50, 65);
+    font-size: 1.3rem;
+    transition: all .3s;
+}
+
+.Nav a:hover {
+    /* color: rgba(252, 47, 0, 1); */
+    color: rgba(214,0,255, 1);
 }
 
 .Nav span {
     text-align: center;
+    font-size: 1.3rem;
 }

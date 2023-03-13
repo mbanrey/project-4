@@ -2,14 +2,12 @@
     /* border: 2px solid black; */
     margin-top: 2vh;
     /* background-color: rgb(224, 251, 252, .4) */
-    background-color: rgb(61, 90, 128);
+    background-color: rgba(0,184,255, .6);
     border-radius: 10px;
-    border: 2px solid rgb(152, 193, 217);
+    border: 2px solid rgb(41, 50, 65);
 }
 .expense-item p{
     margin-left: 2vw;
-    
-    
 }
 .expense-item-description{
     display: flex;
@@ -17,10 +15,14 @@
     justify-content: space-between;
     margin: 1vh 2vw;
     border-radius: 5px;
-    /* background-color: rgb(152, 193, 217, .8); */
-    background-color: rgb(61, 90, 128);
-    border: 2px solid rgb(152, 193, 217)
+    background-color: transparent;
+    border: 2px solid rgb(41, 50, 65);
 }
+
+.category-title {
+    background-color: rgba(0,184,255, .6);
+}
+
 .flex-item{
     width:15vw;
     text-align: center;

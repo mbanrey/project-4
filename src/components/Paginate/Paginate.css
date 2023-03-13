@@ -1,8 +1,22 @@
 .selected-page {
-    color: black;
+    color: rgba(214,0,255, 1);
+    position: relative;
+}
+
+.selected-page::after {
+    content: '';
+    width: 2ch;
+    height: 2ch;
+    display: block;
+    position: absolute;
+    top: -2px;
+    left: -7px;
+    border: 1px solid rgba(214,0,255, 1);
+    border-radius: 50%;
 }
 
 .paginate-container {
+    margin-top: 1rem;
     display: flex;
     gap: 1rem;
     justify-content: center;

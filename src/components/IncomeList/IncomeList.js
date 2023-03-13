@@ -13,8 +13,8 @@ export default function IncomeList({incomeArray, setIncome}) {
 
     return(
         <div className='income-list'>
-            <h3 className="title">Income</h3>
-            <div className="expense-item-description">
+            <h2 className="title">Income</h2>
+            <div className="expense-item-description category-title">
             <p className="flex-item">Category</p>
             <p className="flex-item">Amount</p>
             </div>
