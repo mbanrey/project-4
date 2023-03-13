@@ -18,7 +18,7 @@ export default function IncomeItem({income, setIncome}) {
             <button onClick={handleClick}>Edit</button></div>
             <div className="income-item-description">
             <p className="flex-item">{income.category}</p>
-            <p className="flex-item">{income.amount}</p></div>
+            <p className="flex-item">${income.amount}</p></div>
             {visible && <EditIncome setIncome={setIncome} income={income} setVisible={setVisible}/>}
         </div>
     )

@@ -1,5 +1,6 @@
 .line{
     height: 40vh;
     width: 35vw;
-    margin: auto;
+    margin: 15rem auto;
+    margin-left: 2rem;
 }
