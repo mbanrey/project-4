@@ -38,15 +38,15 @@ export default function LineGraph({ expenses, income }) {
         {
           label: 'Income',
           data: [0,0,0,0,0,0,0,0,0,0,0,0],
-          borderColor: 'rgba(255, 99, 132, 0.8)',
-          backgroundColor: 'rgba(255,0,0,.6)',
+          borderColor: 'rgba(54, 162, 235, 0.8)',
+          backgroundColor: 'rgba(0,0,255,.6)',
           yAxisID: 'y',
         },
         {
           label: 'Expenses',
           data: [0,0,0,0,0,0,0,0,0,0,0,0],
-          borderColor: 'rgba(54, 162, 235, 0.8)',
-          backgroundColor: 'rgba(0,0,255,.6)',
+          borderColor: 'rgba(255, 99, 132, 0.8)',
+          backgroundColor: 'rgba(255,0,0,.6)',
         }
       ]
     })
