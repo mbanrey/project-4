@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import './Paginate.css'
 
-export default function Paginate({pagenatedItems, numPerPage, setSelectedPage, setDisplayed, selectedPage}) {
+export default function Paginate({pagenatedItems, numPerPage, setDisplayed}) {
+    const [selectedPage, setSelectedPage] = useState(1)
     const numOfPages = Math.ceil(pagenatedItems.length / numPerPage)
 
     let pagesArray = []
