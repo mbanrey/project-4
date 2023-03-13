@@ -41,3 +41,9 @@
     height: 2vh;
     align-self: center;
 }
+
+.edit-button {
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}

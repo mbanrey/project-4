@@ -15,7 +15,7 @@ export default function IncomeItem({income, setIncome}) {
         <div className="income-item">
             <div className="income-date-button">
             <p>{incomeDate.toLocaleDateString()}</p>
-            <button onClick={handleClick}>Edit</button></div>
+            <span className="edit-button" onClick={handleClick}>✎</span></div>
             <div className="income-item-description">
             <p className="flex-item">{income.category}</p>
             <p className="flex-item">${income.amount}</p></div>
