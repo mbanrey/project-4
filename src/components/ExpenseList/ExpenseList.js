@@ -1,10 +1,14 @@
 import ExpenseItem from "../ExpenseItem/ExpenseItem"
 import './ExpenseList.css'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Paginate from "../Paginate/Paginate"
 
 export default function ExpenseList({expenses, setExpenses}) {
     const [displayed, setDisplayed] = useState(expenses.slice(0,5))
+
+    useEffect(() => {
+        setDisplayed(expenses.slice(0,5))
+    }, [expenses])
 
     return(
         <div className="expense-list">
