@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
 }
-.edit-form-description{
+.edit-income-form-description{
     display: flex;
     justify-content: space-between;
     margin: 0 2vw;
@@ -10,7 +10,7 @@
     border: 2px solid rgb(152, 193, 217);
     background-color: rgb(61, 90, 128)
 }
-.edit-form-description select{
+.edit-income-form-description select{
     margin:2vh 4vw;
     width: 8vw;
     text-align: center;
@@ -20,10 +20,10 @@
     border: 2px solid rgb(238, 108, 77);
     background-color: rgb(61, 90, 128);
 }
-.edit-form-description input{
+.edit-income-form-description input{
     text-align: center;
     width: 7vw;
-    margin: 2vh auto;
+    margin: 2vh ;
     border-radius: 5px;
     color: rgb(152, 193, 217);
     border: 2px solid rgb(238, 108, 77);

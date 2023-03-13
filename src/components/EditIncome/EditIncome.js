@@ -60,7 +60,7 @@ export default function EditIncome({income, setIncome, setVisible}) {
                 placeholder={editIncome.date}
                 value={editIncome.date}
             />
-            <div className="edit-form-description">
+            <div className="edit-income-form-description">
             {/* <label>Category</label> */}
             <select selected={editIncome.category} onChange={handleChange} value={editIncome.category} name='category'>
                 <option value='job'>Job</option>
