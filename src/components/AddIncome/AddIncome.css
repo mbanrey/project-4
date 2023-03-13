@@ -6,6 +6,7 @@
     height: 40vh;
     background-color: rgb(61, 90, 128);
     border-radius: 10px;
+    border: 2px solid rgb(152, 193, 217);
 }
 
 .add-income-form-desc{
