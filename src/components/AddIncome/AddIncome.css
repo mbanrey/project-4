@@ -4,9 +4,9 @@
     margin: 20vh 8vw 20vh 3vw;
     padding:3vh 3vw;
     height: 40vh;
-    background-color: rgb(61, 90, 128);
+    background-color: rgba(0,184,255, .6);
     border-radius: 10px;
-    border: 2px solid rgb(152, 193, 217);
+    box-shadow: 4px 4px 6px rgba(0,0,0,.4);
 }
 
 .add-income-form-desc{
@@ -15,7 +15,7 @@
     justify-content: space-between;
     width: 15vw;
     border-radius: 10px;
-    border: 2px solid rgb(152, 193, 217);
+    border: 2px solid rgb(41, 50, 65);
     padding: 2vh 2vw
 }
 .add-date{
