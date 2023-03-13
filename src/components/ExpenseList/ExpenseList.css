@@ -1,13 +1,13 @@
 .expense-list{
     display:flex;
     flex-direction: column;
-    margin: 5vh 3vw;
+    margin: 5vh 2vw;
     /* border: 2px solid black; */
     border-radius: 10px;
     /* height: 80vh; */
     padding:3vh 3vw;
     min-height: fit-content;
-    width: 60vw;
+    width: 35vw;
 }
 /* .expense-list .expense-item-description{
     display: flex;

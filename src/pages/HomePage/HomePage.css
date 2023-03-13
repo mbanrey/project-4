@@ -1,8 +1,9 @@
 .pie{
-   
+   height: 20vh
 }
 
 .home-page{
+     display: flex;
     flex-direction: row;
-    display: flex;
+    
 }

@@ -1,5 +1,6 @@
 import EditIncome from "../EditIncome/EditIncome"
 import { useState } from "react"
+import './IncomeItem.css'
 
 export default function IncomeItem({income, setIncome}) {
     const [visible, setVisible] = useState(false)
@@ -11,11 +12,13 @@ export default function IncomeItem({income, setIncome}) {
     const incomeDate = new Date(income.date)
     
     return(
-        <div>
-            <p>{income.category}</p>
-            <p>{income.amount}</p>
+        <div className="income-item">
+            <div className="income-date-button">
             <p>{incomeDate.toLocaleDateString()}</p>
-            <button onClick={handleClick}>Edit</button>
+            <button onClick={handleClick}>Edit</button></div>
+            <div className="income-item-description">
+            <p className="flex-item">{income.category}</p>
+            <p className="flex-item">{income.amount}</p></div>
             {visible && <EditIncome setIncome={setIncome} income={income} setVisible={setVisible}/>}
         </div>
     )
