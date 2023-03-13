@@ -17,6 +17,33 @@
     border-radius: 5px;
     height: fit-content;
 }
+.edit-form-description{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2vw;
+    border-radius: 5px;
+    border: 2px solid rgb(152, 193, 217);
+    background-color: rgb(61, 90, 128)
+}
+.edit-form-description select{
+    margin:2vh 3vw;
+    width: 5vw;
+    text-align: center;
+    border-radius: 5px;
+    height: 2vh;
+    color: rgb(152, 193, 217);
+    border: 2px solid rgb(238, 108, 77);
+    background-color: rgb(61, 90, 128);
+}
+.edit-form-description input{
+    text-align: center;
+    width: 5vw;
+    margin: 2vh ;
+    border-radius: 5px;
+    color: rgb(152, 193, 217);
+    border: 2px solid rgb(238, 108, 77);
+    background-color: rgb(61, 90, 128);
+}
 .edit-buttons button{
     color: rgb(152, 193, 217);
     border: 2px solid rgb(238, 108, 77);
