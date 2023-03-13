@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as incomeAPI from '../../utilities/income-api'
+import './EditIncome.css'
 
 export default function EditIncome({income, setIncome, setVisible}) {
     const [editIncome, setEditIncome]= useState({
@@ -50,14 +51,23 @@ export default function EditIncome({income, setIncome, setVisible}) {
         setIncome(incomes)
     }
     return(
-        <form>
-            <label>Category</label>
+        <form className="income-Form">
+            <input 
+                className="edit-date"
+                onChange={handleChange}
+                type='date'
+                name='date'
+                placeholder={editIncome.date}
+                value={editIncome.date}
+            />
+            <div className="edit-income-form-description">
+            {/* <label>Category</label> */}
             <select selected={editIncome.category} onChange={handleChange} value={editIncome.category} name='category'>
                 <option value='job'>Job</option>
                 <option value='investments'>Investments</option>
                 <option value='misc'>Misc</option>
             </select>
-            <label>Amount</label>
+            {/* <label>Amount</label> */}
             <input 
                 onChange={handleChange}
                 type='number'
@@ -65,14 +75,9 @@ export default function EditIncome({income, setIncome, setVisible}) {
                 placeholder='amount'
                 value={editIncome.amount}    
             />
-            <label>Date</label>
-            <input 
-                onChange={handleChange}
-                type='date'
-                name='date'
-                placeholder={editIncome.date}
-                value={editIncome.date}
-            />
+            {/* <label>Date</label> */}
+            </div>
+            <div className="edit-buttons">
             <button 
             onClick={handleUpdate}>
                 Update Income
@@ -81,6 +86,7 @@ export default function EditIncome({income, setIncome, setVisible}) {
             onClick={handleDelete}>
                 Delete Income
                 </button>
+                </div>
         </form>
     )
 }

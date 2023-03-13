@@ -1,3 +1,4 @@
+import './LineGraph.css'
 import {
     Chart as ChartJS,
     LineElement,

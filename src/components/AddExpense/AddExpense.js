@@ -1,5 +1,6 @@
 import { useState } from "react"
 import * as expenseAPI from '../../utilities/expenses-api'
+import './AddExpense.css'
 
 export default function AddExpense({setExpenses}) {
 
@@ -42,7 +43,17 @@ export default function AddExpense({setExpenses}) {
     }
 
     return(
-        <form >
+        <form className="add-expense-form">
+            <label>Date</label>
+            <input 
+                className="add-date"
+                onChange={handleChange}
+                type='date'
+                name='date'
+                placeholder='date'
+                value={newExpense.date}
+            />
+            <div className="add-expense-form-desc">
             <label>Name</label>
             <input 
                 onChange={handleChange} 
@@ -68,19 +79,11 @@ export default function AddExpense({setExpenses}) {
                 placeholder='amount'
                 value={newExpense.amount}    
             />
-            <label>Date</label>
-            <input 
-                onChange={handleChange}
-                type='date'
-                name='date'
-                placeholder='date'
-                value={newExpense.date}
-            />
-            <label>Website</label>
             <button 
             onClick={handleCreateExpense}>
                 Add Expense
                 </button>
+                </div>
         </form>
     )
 }

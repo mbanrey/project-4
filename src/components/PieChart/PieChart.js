@@ -1,3 +1,4 @@
+import './PieChart.css'
 import{
     Chart as ChartJS,
     ArcElement,
@@ -13,6 +14,7 @@ ChartJS.register(
     Tooltip,
     Legend
 )
+
 
 
 export default function PieChart({expenses}) {

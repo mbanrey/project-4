@@ -1,5 +1,6 @@
 import { useState } from "react"
 import * as incomeAPI from '../../utilities/income-api'
+import './AddIncome.css'
 
 export default function AddIncome({setIncome}) {
 
@@ -40,7 +41,17 @@ export default function AddIncome({setIncome}) {
     }
 
     return(
-        <form >
+        <form className="add-income-form">
+            <label>Date</label>
+            <input 
+                className="add-date"
+                onChange={handleChange}
+                type='date'
+                name='date'
+                placeholder='date'
+                value={newIncome.date}
+            />
+            <div className="add-income-form-desc">
             <label>Category</label>
             <select onChange={handleChange} value={newIncome.category} name='category'>
                 <option value='job'>Job</option>
@@ -55,18 +66,12 @@ export default function AddIncome({setIncome}) {
                 placeholder='amount'
                 value={newIncome.amount}    
             />
-            <label>Date</label>
-            <input 
-                onChange={handleChange}
-                type='date'
-                name='date'
-                placeholder='date'
-                value={newIncome.date}
-            />
+            
+            
             <button 
             onClick={handleCreateIncome}>
                 Add Income
-                </button>
+                </button></div>
         </form>
     )
 }
