@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Paginate.css'
 
 export default function Paginate({pagenatedItems, numPerPage, setDisplayed}) {
@@ -47,6 +47,10 @@ export default function Paginate({pagenatedItems, numPerPage, setDisplayed}) {
         const startingIndex = numPerPage * (page - 1)
         setDisplayed(pagenatedItems.slice(startingIndex, startingIndex + numPerPage))
     }
+
+    useEffect(() => {
+        setSelectedPage(1)
+    }, [pagenatedItems])
 
   return (
     <div className='paginate-container'>
