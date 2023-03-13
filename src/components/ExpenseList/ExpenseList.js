@@ -6,33 +6,6 @@ import Paginate from "../Paginate/Paginate"
 export default function ExpenseList({expenses, setExpenses}) {
     const [selectedPage, setSelectedPage] = useState(1)
     const [displayed, setDisplayed] = useState(expenses.slice(0,5))
-    const numPerPage = 5
-    const numOfPages = Math.ceil(expenses.length / numPerPage)
-
-
-    function getPreviousPage() {
-        if(selectedPage === 1) {
-            return
-        }
-        const startingIndex = numPerPage * (selectedPage - 2)
-        setSelectedPage(prev => prev - 1)
-        setDisplayed(expenses.slice(startingIndex, startingIndex + numPerPage))
-    }
-
-    function getNextPage() {
-        if(selectedPage === numOfPages) {
-            return
-        }
-        const startingIndex = numPerPage * (selectedPage)
-        setSelectedPage(prev => prev + 1)
-        setDisplayed(expenses.slice(startingIndex, startingIndex + numPerPage))
-    }
-
-    function getSpecificPage(page) {
-        setSelectedPage(page)
-        const startingIndex = numPerPage * (page - 1)
-        setDisplayed(expenses.slice(startingIndex, startingIndex + numPerPage))
-    }
 
     return(
         <div className="expense-list">
@@ -46,10 +19,10 @@ export default function ExpenseList({expenses, setExpenses}) {
             ))}
             <Paginate 
                 selectedPage={selectedPage} 
-                getPreviousPage={getPreviousPage} 
-                getNextPage={getNextPage}
-                getSpecificPage={getSpecificPage}
-                numOfPages={numOfPages}
+                setSelectedPage={setSelectedPage}
+                setDisplayed={setDisplayed}
+                numPerPage={5}
+                pagenatedItems={expenses}
             />
         </div>
     )

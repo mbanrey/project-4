@@ -1,6 +1,7 @@
 import './Paginate.css'
 
-export default function Paginate({getSpecificPage, getPreviousPage, getNextPage, selectedPage, numOfPages}) {
+export default function Paginate({pagenatedItems, numPerPage, setSelectedPage, setDisplayed, selectedPage}) {
+    const numOfPages = Math.ceil(pagenatedItems.length / numPerPage)
 
     let pagesArray = []
     if(numOfPages <= 5) {
@@ -19,6 +20,30 @@ export default function Paginate({getSpecificPage, getPreviousPage, getNextPage,
         for(let i = selectedPage - 2; i < selectedPage + 3; i++) {
             pagesArray.push(i)
         }
+    }
+
+    function getPreviousPage() {
+        if(selectedPage === 1) {
+            return
+        }
+        const startingIndex = numPerPage * (selectedPage - 2)
+        setSelectedPage(prev => prev - 1)
+        setDisplayed(pagenatedItems.slice(startingIndex, startingIndex + numPerPage))
+    }
+
+    function getNextPage() {
+        if(selectedPage === numOfPages) {
+            return
+        }
+        const startingIndex = numPerPage * (selectedPage)
+        setSelectedPage(prev => prev + 1)
+        setDisplayed(pagenatedItems.slice(startingIndex, startingIndex + numPerPage))
+    }
+
+    function getSpecificPage(page) {
+        setSelectedPage(page)
+        const startingIndex = numPerPage * (page - 1)
+        setDisplayed(pagenatedItems.slice(startingIndex, startingIndex + numPerPage))
     }
 
   return (
