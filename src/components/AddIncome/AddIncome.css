@@ -9,6 +9,12 @@
     box-shadow: 4px 4px 6px rgba(0,0,0,.4);
 }
 
+.add-income-form input,
+.add-income-form select {
+    padding: .3rem;
+    border-radius: 5px;
+}
+
 .add-income-form-desc{
     display: flex;
     flex-direction: column;
@@ -20,4 +26,20 @@
 }
 .add-date{
     margin: 0 auto 2vh 2vw;
+}
+
+.add-income-form button {
+    border-radius: 5px;
+    color: white;
+    border: 2px solid rgb(238, 108, 77);
+    background-color: rgb(61, 90, 128);
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.add-income-form button:hover {
+    background-color: rgb(238, 108, 77);
+    border: 2px solid rgb(61, 90, 128);
 }

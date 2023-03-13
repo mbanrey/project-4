@@ -3,9 +3,8 @@
     flex-direction: column;
     height: 100vh;
     width: 15vw;
-    margin: 5vh 3vw 5vh 3vw;
+    margin: 11vh 3vw 5vh 3vw;
     border-radius: 10px;
-    /* border: 2px solid rgb(41, 50, 65); */
     background-color: rgba(0,184,255, .6);
     box-shadow: 4px 4px 6px rgba(0,0,0,.4); 
 }
@@ -19,7 +18,6 @@
 }
 
 .Nav a:hover {
-    /* color: rgba(252, 47, 0, 1); */
     color: rgba(214,0,255, 1);
 }
 

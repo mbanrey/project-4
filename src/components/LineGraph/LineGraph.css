@@ -4,3 +4,7 @@
     margin: 15rem auto;
     margin-left: 2rem;
 }
+
+.line select {
+    margin-inline: .5rem;
+}

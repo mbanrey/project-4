@@ -4,3 +4,7 @@
     margin: auto;
     margin-top: 4rem;
 }
+
+.pie select {
+    margin-inline: .5rem;
+}
