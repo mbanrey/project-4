@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const favicon = require('serve-favicon')
 const logger = require('morgan')
+const cors = require('cors')
 
 // always require and configure near the top
 require('dotenv').config()
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 3001
 
 app.use(logger('dev'))
 app.use(express.json())
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }))
 
 app.use(require('./config/checkToken'))
 
