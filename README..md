@@ -1,18 +1,12 @@
 # Expense and Bill Tracker
 
-## Wireframes
-### Login
-![login screen](wireframes/login.png)
-### Dashboard
-![dashboard](wireframes/dashboard.png)
-### Expenses
-![expenses](wireframes/expenses.png)
-### Bills
-![bills](wireframes/expenses.png)
 
-## ERD
+## Screenshots
 
-![ERD](wireframes/ERD.png)
+![Auth Page](images/Auth.png)
+![Home Page](images/Expense.png)
+![Income Page](images/Income.png)
+![Expense Page](images/Expense.png)
 
 ## Technologies Used
 
@@ -22,6 +16,12 @@
 - Express
 - Node
 - Mongoose
+
+## Getting Started
+
+[Expense Tracker](https://expense-tracker-client-99oc.onrender.com)
+
+[Trello Board](https://expense-tracker-client-99oc.onrender.com/home)
 
 ## MVP
 
