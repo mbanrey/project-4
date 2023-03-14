@@ -1,5 +1,7 @@
 # Expense and Bill Tracker
 
+This app is used to have a convenient place to keep track of all of your bills and expenses. It will allow you to visualize your spending habits based on different categories and see where all of your hard earned money is going. You can also keep track of your income and see how that compares to your expenses for each month.
+
 
 ## Screenshots
 
