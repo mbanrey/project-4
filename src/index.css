@@ -13,12 +13,12 @@
 body{
   font-family: 'Rajdhani', sans-serif;
   color: rgb(41, 50, 65);
-  background-image: linear-gradient(
+  background: linear-gradient(
     to right bottom,
     rgba(0,184,255, 0.4) 0%,
     rgba(0,255,159, 0.4) 50%,
     rgba(214,0,255, 0.4) 100%);
-  background-size: 100vw;
+  min-height: 100vh;
 }
 
 html {

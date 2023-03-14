@@ -2,21 +2,11 @@
     display:flex;
     flex-direction: column;
     margin: 5vh 2vw;
-    /* border: 2px solid black; */
     border-radius: 10px;
-    /* height: 80vh; */
     padding:3vh 3vw;
     min-height: fit-content;
     width: 35vw;
 }
-/* .expense-list .expense-item-description{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1vh 2vw;
-    border-radius: 5px;
-    background-color: rgb(152, 193, 217, .8);
-} */
 
 .expense-list .flex-item{
     width:15vw;

@@ -1,7 +1,6 @@
 .expense-page{
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     width: 70vw;
 }
 @media screen and (max-width: 1000px){
@@ -21,7 +20,6 @@
     .add-expense-form{
         padding: auto;
         text-align: center;
-        /* justify-content: center; */
         margin: 2vh 2vw;
     }
     .add-expense-form-desc{
@@ -46,7 +44,6 @@
     .add-income-form{
         padding: auto;
         text-align: center;
-        /* justify-content: center; */
         margin: 2vh 2vw;
     }
     .add-income-form-desc{

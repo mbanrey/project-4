@@ -1,18 +1,7 @@
 .selected-page {
     color: rgba(214,0,255, 1);
     position: relative;
-}
-
-.selected-page::after {
-    content: '';
-    width: 2.5ch;
-    height: 2.5ch;
-    display: block;
-    position: absolute;
-    top: -2px;
-    left: -9px;
-    border: 1px solid rgba(214,0,255, 1);
-    border-radius: 50%;
+    text-decoration: underline;
 }
 
 .paginate-container {
